@@ -1,6 +1,7 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local medicCooldowns = {}
 local MEDIC_FEE = 500 -- Set fee for medic services
+local COOLDOWN_TIME = 300 -- Cooldown of 300 seconds (5 minutes) -- New variable added
 
 -- Function to count players with a specific job
 local function countPlayersByJob(job)
@@ -46,7 +47,7 @@ RegisterCommand('requestmedic', function(source, args)
 
     -- Deduct Fee and Set Cooldown
     Player.Functions.RemoveMoney('cash', MEDIC_FEE)
-    medicCooldowns[identifier] = currentTime + 300 -- Cooldown of 300 seconds (5 minutes)
+    medicCooldowns[identifier] = currentTime + COOLDOWN_TIME -- Updated to use the new variable
     TriggerClientEvent('ai_medic:requestMedic', src)
 end)
 
