@@ -15,7 +15,9 @@ make sure to ensure in your server.cfg
 # :tools: How It Works:
 
 :one: Type /requestmedic when you're downed. :speech_balloon:
+
 :two: Watch as the AI medic comes running to save the day! :stethoscope:
+
 :three: Get revived and continue your adventures! :star2:
 
 # :sparkles: Why Choose Our AI Medic Script?
