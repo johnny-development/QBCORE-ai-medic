@@ -2,7 +2,7 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local medicCooldowns = {}
 local MEDIC_FEE = 500 -- Set fee for medic services
 
--- Function to count players with a specific job
+-- Counts the online players for the Job (EMS)
 local function countPlayersByJob(job)
     local players = QBCore.Functions.GetPlayers()
     local count = 0
@@ -31,7 +31,7 @@ RegisterCommand('requestmedic', function(source, args)
         return
     end
 
-    -- Check for EMS Online
+    -- Checks online ems
     local EMSCount = countPlayersByJob('ambulance')
     if EMSCount > 0 then
         TriggerClientEvent('QBCore:Notify', src, 'EMS is currently online. Please request a real medic.', 'error')
@@ -50,18 +50,15 @@ RegisterCommand('requestmedic', function(source, args)
     TriggerClientEvent('ai_medic:requestMedic', src)
 end)
 
--- Secure Server-Side Revive Logic
 RegisterNetEvent('ai_medic:serverRevive', function(targetId)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 
-    -- Validate request source
     if not Player then
         print("[AI Medic]: Invalid source for revive request.")
         return
     end
 
-    -- Ensure revive requests only come from valid AI Medic calls
     if Player.PlayerData.job.name ~= 'ambulance' and src ~= targetId then
         print("[AI Medic]: Unauthorized revive attempt detected from source: " .. src)
         return
