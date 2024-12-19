@@ -120,3 +120,6 @@ RegisterNetEvent('ai_medic:requestMedic', function()
         TriggerEvent('QBCore:Notify', 'Medic action canceled.', 'error')
     end)
 end)
+
+-- For custom scripts join the link below your first order is on us
+-- https://discord.gg/mQQ2D28XqK
