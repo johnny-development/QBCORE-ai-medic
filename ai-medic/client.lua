@@ -33,6 +33,12 @@ RegisterNetEvent('ai_medic:requestMedic', function()
         return
     end
 
+    -- Set Medic Immune to Damage and Spooking
+    SetEntityInvincible(medicPed, true) -- Makes the NPC immune to all damage
+    SetBlockingOfNonTemporaryEvents(medicPed, true) -- Prevents reactions to explosions, gunfire, etc.
+    TaskSetBlockingOfNonTemporaryEvents(medicPed, true)
+    print("[AI Medic]: Medic is now immune to damage and external events.")
+
     -- Make Medic Run to Player
     TaskGoToCoordAnyMeans(medicPed, playerCoords.x, playerCoords.y, playerCoords.z, 2.0, 0, 0, 786603, 0)
     print("[AI Medic]: Medic is running to the player...")
