@@ -12,3 +12,6 @@ Config.IgnoreExternalEvents = true -- Whether the medic ignores explosions, gunf
 
 -- Debugging settings
 Config.Debug = false -- Enable or disable debug messages in the console
+
+-- For custom scripts join the link below your first order is on us
+-- https://discord.gg/mQQ2D28XqK
